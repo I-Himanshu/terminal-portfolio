@@ -30,7 +30,7 @@ const TerminalLayout = ({
                 e.target.closest(".terminal").classList.add('fadeHide');
                 setTimeout(()=>{
                     setTerminalOpen(false);
-                }, 600);
+                }, 800);
             }}/>
             <div className="flex flex-col flex-1">
                 {children}

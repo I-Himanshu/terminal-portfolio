@@ -40,6 +40,7 @@ body{
 .fadeHide{
     animation: fadeOut 800ms linear!important;
     transform-origin: top!important;
+    display: none!important;
 }
 @keyframes fadeOut {
     0% {

@@ -202,7 +202,9 @@ const Terminal = ({
       {
         ExtraTabs.map((tab, index) => (
           <TerminalLayout key={index} terminalRef={terminalRef}
-            setTerminalOpen={setTerminalOpen}
+            setTerminalOpen={()=>{
+              // setExtraTabs(ExtraTabs.filter((_, i) => i !== index));
+            }}
             styles={
               {
                 "position": "absolute"
