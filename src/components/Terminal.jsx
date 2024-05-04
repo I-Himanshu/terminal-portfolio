@@ -17,8 +17,9 @@ const Terminal = ({
   USER,
   setTerminalOpen
 }) => {
-  console.log("Terminal ->", setTerminalOpen)
-  changeTheme(theme);
+  useEffect(() => {
+    changeTheme(theme);
+  }, [theme]);
   const [terminalHistory, setTerminalHistory] = useState([{
     command: 'welcome',
     output: [
@@ -97,9 +98,16 @@ const Terminal = ({
         setTerminalHistory([]);
         return;
       case 'change-theme':
-        changeTheme();
-        return;
+        const thme = changeTheme("switch");
+
+        output = `
+          <div class="text-primary-text">
+            <p>Theme changed to <span class="bg-primary-color px-2 py-1 rounded-md text-white text-sm">${thme}</span>.</p>
+          </div>
+        `;
+        break;
       case 'help':
+        const extraCommands = ['change-theme', 'clear', 'project [number]', 'exit'];
         output = `
           <div class="text-primary-text">
             <h2 class="text-2xl font-bold mb-4">Available Commands</h2>
@@ -111,6 +119,13 @@ const Terminal = ({
                 <p class="text-secondary-text">${cmd.usage}</p>
               </div>
             `).join('')}
+
+            <h2 class="text-2xl font-bold mt-4">Extra Commands</h2>
+            <div class="flex items-start mb-4">
+              <div class="bg-primary-color text-primary-bg px-2 py-1 rounded-md mr-4">
+                ${extraCommands.join('</div><div class="bg-primary-color text-primary-bg px-2 py-1 rounded-md mr-4">')}
+              </div>
+            </div>
           </div>
         `;
         break;

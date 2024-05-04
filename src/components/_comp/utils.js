@@ -1,4 +1,10 @@
-export const changeTheme = async (theme = "green-hacker") => {
+export const changeTheme = (theme = "green-hacker") => {
+
+  if(
+    theme == "switch"
+  ){
+    theme = document.body.style.getPropertyValue("--primary-color") == "#3A86FF" ? "green-hacker" : "blue-hacker";
+  }
   if (theme == "green-hacker") {
     document.body.style.setProperty("--primary-color", "#4CAF50");
     document.body.style.setProperty("--secondary-color", "#333333");
@@ -26,4 +32,5 @@ export const changeTheme = async (theme = "green-hacker") => {
     document.body.style.setProperty("--secondary-button", "#FF5E5E");
     document.body.style.setProperty("--tertiary-button", "#00FF00");
   }
+  return theme;
 };

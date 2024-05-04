@@ -5,7 +5,12 @@ const TerminalInput = ({ onSubmit, scrollToBottom, focusOnInput, suggestedComman
     const inputRef = React.createRef();
     // const suggestedCommands = ['about', 'projects', 'skills', 'social', 'education', 'certifications', 'experience', 'languages', 'hobbies', 'interests', 'welcome', 
     // 'project 1', 'project 2', 'project 3', 'project 4', 'project 5', 'clear', 'change-theme', 'help', 'exit']
-    
+    // add more commands here
+    useEffect(() => {
+        suggestedCommands.push(
+            'change-theme', 'clear', 'project [number]', 'exit'
+        )
+    }, [suggestedCommands]);
     const handleInputChange = (e) => {
         setCommand(e.target.value);
         scrollToBottom();
