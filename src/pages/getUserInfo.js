@@ -119,6 +119,7 @@ const getUserInfo = () => {
           "Organized workshops, hackathons, and tech talks to foster a culture of learning and innovation.",
       },
     ],
+    
     education: [
       {
         institution: "Bakhtiyarpur College of Engineering, Patna",
