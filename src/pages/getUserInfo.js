@@ -64,7 +64,7 @@ const getUserInfo = () => {
       },
     ],
     skills: {
-      //   languages: ["HTML", "CSS", "JavaScript", "Python", "C++"],
+        languages: ["HTML", "CSS", "JavaScript", "Python", "C++"],
       frameworks: [
         "React",
         "Node.js",

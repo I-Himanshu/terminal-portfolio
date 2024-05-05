@@ -15,7 +15,8 @@ const Terminal = ({
   COMMANDS,
   userName,
   USER,
-  setTerminalOpen
+  setTerminalOpen,
+  isLoading
 }) => {
   useEffect(() => {
     changeTheme(theme);
@@ -205,7 +206,9 @@ const Terminal = ({
         setTerminalOpen={setTerminalOpen}
       >
         <div className="flex flex-col p-4 flex-1">
-          <TerminalHistory scrollToBottom={scrollToBottom} userName={userName} history={terminalHistory} />
+          <TerminalHistory scrollToBottom={scrollToBottom} userName={userName} history={terminalHistory}
+            isLoading={isLoading}
+          />
           <TerminalInput
             suggestedCommands={COMMANDS.filter((cmd) => cmd.isAvailable).map((cmd) => cmd.command)}
             focusOnInput={focusOnInput}

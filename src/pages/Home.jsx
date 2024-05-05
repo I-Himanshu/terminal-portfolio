@@ -7,6 +7,7 @@ const Home = () => {
   const terminalRef = React.createRef();
   const [terminalOpen, setTerminalOpen] = useState(false);
   const { USER, COMMANDS } = getUserInfo("johndoe");
+  const [isLoading, setIsLoading] = useState(true);
   return (
 
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-500">
@@ -27,6 +28,10 @@ const Home = () => {
             userName={USER.name}
             theme={USER.theme}
             setTerminalOpen={setTerminalOpen}
+            isLoading={[
+              isLoading,
+              setIsLoading
+            ]}
           />
         )
       }
